@@ -1,0 +1,18 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  //socket.emit('message', 'hello');
+  socket.on('message', function(msg){
+      console.log('llego->',msg)
+      document.getElementById('entrante').innerHTML=msg.data;
+  });
+</script>
+<h3>some</h3>
+
+
+<div id="entrante">mensaje entrante</div>
+
+<input type="submit" onclick="socket.emit('message', document.getElementById('text').value);" value="some">
+<input type="text" id="text" value="some">
+
+
